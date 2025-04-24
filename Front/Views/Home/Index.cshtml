@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Formularios Usuario</h1>
+</div>
+
+
+<form action="Home/EnviarUsuario" method="post">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="NombreCompleto" class="form-control" placeholder="Inserte nombre">
+            </div>
+
+            <div class="form-group">
+                <label>Tipo documento</label>
+                <select class="form-control" name="IdTipoDocumento">
+                    <option value="value">Selecione tipo documento</option>
+                    @foreach (var item in Model.tipoDocumentos)
+                    {
+                        <option value="@item.IdTipoDocumento">@item.TipoDocumento1</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Numero documento</label>
+                <input type="number" class="form-control" name="NumeroDocumento" placeholder="Inserte numero de documento">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Fecha nacimiento</label>
+                <input type="date" class="form-control" name="FechaNacimiento" placeholder="Selecione fecha nacimiento">
+            </div>
+
+            <div class="form-group">
+                <label>Valor a ganar</label>
+                <input type="text" class="form-control" name="ValorGanar" placeholder="Inserte valor a ganar">
+            </div>
+
+            <div class="form-group">
+                <label>Estado Civil</label>
+                <select class="form-control" name="IdEstadoCivil">
+                    <option value="value">Selecione estado civil</option>
+                    @foreach (var item in Model.estadoCivil)
+                    {
+                        <option value="@item.IdEstadoCivil">@item.EstadoCivil1</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+
+    </div>
+</form>    
+
+
+
+
+
